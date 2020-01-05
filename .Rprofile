@@ -5,10 +5,10 @@
 ############################################
 #            Set session options           #
 ############################################
-options(scipen=999)				# disable scientific notation
-options(digits = 2)				# limit digits as much as possible
-options(continue="... ")		# change continuation prompt to set it apart
-
+options(scipen=999)		# disable scientific notation
+options(digits = 2)		# limit digits as much as possible
+options(continue="... ")	# change continuation prompt to set it apart
+options(max.print = 100)	# Lower number of print items from 1,000 to 100
 
 ############################################
 #   Create new env. for custom functions   #
@@ -28,6 +28,17 @@ options(continue="... ")		# change continuation prompt to set it apart
   	 * my_setup: print .Rprofile settings and functions
   	 * lsp:		 print all functions in a package
   ")
+}
+
+###### pretty print libs paths ############
+.env$see_libpaths <- function(){
+  if (length(.libPaths()) > 1) {
+    msg <- "Using libraries at paths:\n"
+  } else {
+    msg <- "Using library at path:\n"
+  }
+  libs <- paste("-", .libPaths(), collapse = "\n")
+  message(msg, libs, sep = "")	  
 }
 
 ######### see package functions ############
@@ -54,6 +65,8 @@ glue::glue(
 
 	Current Working Directory is:
 	{ getwd() }
+
+	{ see_libpaths() }
 
 	Cheers!
 	***********************************************************"
