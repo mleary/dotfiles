@@ -27,6 +27,7 @@ options(max.print = 100)	# Lower number of print items from 1,000 to 100
  
    Custom Functions in .profile_env:
    * my_setup:  .Rprofile settings and functions
+   * see_libpaths: pretty print library paths
    * pkg_funcs:  print all functions in a package
   ")
 }
@@ -70,5 +71,5 @@ Current Working Directory is:
 -", getwd()," 
 
 Cheers!
-***********************************************************"
-)
+***********************************************************\n")
+
