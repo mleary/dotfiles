@@ -7,6 +7,10 @@
 scratch.R
 scratch.Rmd
 
+# Checkpoint folder #
+#####################
+.checkpoint/
+
 # History files #
 #################
 .Rhistory
