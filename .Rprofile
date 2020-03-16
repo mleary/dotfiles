@@ -10,11 +10,6 @@ options(digits = 2)		# limit digits as much as possible
 options(continue=" ")	# change continuation prompt to set it apart
 options(max.print = 500)	# Lower number of print items from 1,000 to 100
 
-############################################
-#            Set Rstudio options           #
-############################################
-rstudioapi::applyTheme(name = "Monokai")
-
 
 ############################################
 #   Create new env. for custom functions   #
@@ -40,6 +35,7 @@ rstudioapi::applyTheme(name = "Monokai")
 }
 
 attach(.profile_env)
+
 
 ############################################
 #  Print Message that .Rprofile is loaded  #
