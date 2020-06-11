@@ -1,5 +1,5 @@
 #author: Matt Leary
-#date: 3/15/2020
+#date: 6/10/2020
 #intent: basic customization for my R sessions
 
 ############################################
@@ -7,8 +7,7 @@
 ############################################
 options(scipen=99)		# disable scientific notation
 options(digits = 2)		# limit digits as much as possible
-options(continue=" ")	# change continuation prompt to set it apart
-options(max.print = 500)	# Lower number of print items from 1,000 to 100
+options(max.print = 500)	# Lower number of print items from 1,000 to 500
 
 
 ############################################
@@ -23,7 +22,6 @@ options(max.print = 500)	# Lower number of print items from 1,000 to 100
     "Custom Settings:
    * Scientific Notation display is disabled 
    * Digits = 2
-   * Change continuation prompt from '> ' to ' '
    * Max print 500 items, not 1,000")
 }
 
@@ -59,4 +57,3 @@ Cheers!
 ############################################
 
 .profile_env$load_pkg("fcuk")
-.profile_env$load_pkg("tidylog")
