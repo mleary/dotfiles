@@ -1,3 +1,3 @@
 # dotfiles
 
-Repo to house dotfiles 
+Repo to house customization files, larger my .Rprofile 
