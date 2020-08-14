@@ -1,38 +1,69 @@
 #author: Matt Leary
-#date: 6/10/2020
-#intent: basic customization for my R sessions
+#date: 08/13/2020
+#intent: basic customization for my RStudio sessions
+
 
 ############################################
 #            Set session options           #
 ############################################
 options(scipen=99)		# disable scientific notation
 options(digits = 2)		# limit digits as much as possible
-options(max.print = 500)	# Lower number of print items from 1,000 to 500
 
 
 ############################################
-#   Create new env. for custom functions   #
+#          load package function           #
 ############################################
 
-.profile_env <- new.env()
-
-######## print changes made ###############
-.profile_env$my_setup <- function(){
-  cat(
-    "Custom Settings:
-   * Scientific Notation display is disabled 
-   * Digits = 2
-   * Max print 500 items, not 1,000")
-}
-
-########## load startup packages ##############
-.profile_env$load_pkg <- function(pkg) {
+load_pkg <- function(pkg) {
   if(!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
     message(paste0("You should install the `", pkg, "` package"))
+  } else {
+    message(paste0("The`", pkg, "` package has been loaded"))
   }  
 }
 
-attach(.profile_env)
+
+############################################
+#  Print Message that .Rprofile is loaded  #
+#       and add message about changes      #
+############################################
+
+message(
+"***********************************************************
+Loading Matt's .Rprofile
+    Custom Settings:
+      * Scientific Notation display is disabled 
+      * Digits = 2
+  
+Current Working Directory is:
+    -", getwd()," \n"
+)                     # print changes & working directory
+
+load_pkg("fcuk")      # Loading to catch typos
+
+###### Console prompt chnages
+if(requireNamespace("prompt", quietly = TRUE)) {
+  prompt_git <- function(...){
+    paste0(
+      "[", prompt::git_branch(), "]",
+      " > "
+    )
+  }
+  prompt::set_prompt(prompt_git)
+  rm(prompt_git)
+} else {
+  message("\nHi Matt! You should install the {prompt} package.")
+  message("    devtools::install_github('gaborcsardi/prompt')")
+}
+###### Closing message sign off
+message("
+Cheers!
+***********************************************************\n")
+
+############################################
+#     remove load package function         #
+############################################
+rm(load_pkg)
 
 
 ############################################
