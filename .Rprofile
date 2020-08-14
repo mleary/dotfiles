@@ -65,26 +65,3 @@ Cheers!
 ############################################
 rm(load_pkg)
 
-
-############################################
-#  Print Message that .Rprofile is loaded  #
-############################################
-
-message(
-  "***********************************************************
-Loading Matt's .Rprofile
-To see changes, call `my_setup()`
-
-Current Working Directory is:
--", getwd()," 
-
-Cheers!
-***********************************************************\n")
-
-
-############################################
-#              Load packages               #
-#       Remember dont confuse people!      #
-############################################
-
-.profile_env$load_pkg("fcuk")
