@@ -7,7 +7,7 @@
 #            Set session options           #
 ############################################
 options(scipen=99)		# disable scientific notation
-options(digits = 2)		# limit digits as much as possible
+options(digits = 4)		# limit digits as much as possible
 
 
 ############################################
