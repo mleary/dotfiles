@@ -49,8 +49,13 @@ if(requireNamespace("prompt", quietly = TRUE)) {
       " > "
     )
   }
-  prompt::set_prompt(prompt_git)
-  rm(prompt_git)
+  
+  if(prompt::prompt_git() == "> "){
+    prompt::set_prompt("[no git] >")
+  } else {
+    prompt::set_prompt(prompt_git) 
+  }
+  
 } else {
   message("\nHi Matt! You should install the {prompt} package.")
   message("    devtools::install_github('gaborcsardi/prompt')")
