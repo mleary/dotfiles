@@ -68,5 +68,5 @@ Cheers!
 ############################################
 #     remove load package function         #
 ############################################
-rm(load_pkg)
+rm(load_pkg, prompt_git)
 
