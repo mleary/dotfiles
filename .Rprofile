@@ -60,7 +60,7 @@ if(requireNamespace("prompt", quietly = TRUE)) {
   
 } else {
   message("\nHi Matt! You should install the {prompt} package.")
-  message("    devtools::install_github('gaborcsardi/prompt')")
+  message("    devtools::install_github('gaborcsardi/prompt', ref = 'x')")
 }
 ###### Closing message sign off
 message("
