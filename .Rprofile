@@ -60,7 +60,7 @@ if (interactive()) {
 
     } else {
       message("\nHi Matt! You should install the {prompt} package.")
-      message("    devtools::install_github('gaborcsardi/prompt', ref = 'x')")
+      message("    devtools::install_github('gaborcsardi/prompt')")
     }
     ###### Closing message sign off
     message("
