@@ -1,53 +1,73 @@
-/* Use this with VS Code to set default keyboard short cuts
-/  Place your key bindings in this file to override the defaultsauto[]
-/  These are my default settings - Updated Jan 30, 2024
-*/
-
-{
-    "workbench.colorTheme": "Monokai",
-    "files.autoSave": "afterDelay",
-    "window.zoomLevel": 1,
-    "r.rmarkdown.enableCodeLens": false,
-    "r.plot.useHttpgd": true,
-    "[r]": {
-        "editor.defaultFormatter": "REditorSupport.r"
-    },
-    "files.associations": {
-        "*.qmd": "markdown" // Need to do this for quarto files to recognize markdown shortcuts in keybindings.json
-      }
-}
-
-*/
 [
+/**********************
+/ Python
+***********************/
     { 
     // Executes the selected Python code in the terminal when the key combination "cmd+enter" is pressed.
             "key": "cmd+enter",
             "command": "python.execSelectionInTerminal",
             "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
     },
+    { 
+    // Executes the selected Python code in the terminal when the key combination "ctrl+enter" is pressed.
+                "key": "ctrl+enter",
+                "command": "python.execSelectionInTerminal",
+                "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+        },
+
+/**********************
+/ R
+***********************/
     {
-    // Keybinding configuration for inserting a magrittr pipe in the editor with R
-        "key": "cmd+shift+m",
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus",
-        "args": {
-            "langId": "r",
-            "name": "Insert magrittr pipe"
-        }
+        "key": "alt+-",
+        "command": "type",
+        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+        "args": {"text": " <- "}
     },
     {
-    // Keybinding configuration for inserting a magrittr pipe in the editor with markdown (for quarto files)
+        "key": "ctrl+-",
+        "command": "type",
+        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+        "args": {"text": " <- "}
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "type",
+        "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+        "args": {"text": " %>%\n"}
+    },
+
+/**********************
+/ Quarto
+***********************/
+    {
+        "key": "alt+-",
+        "command": "type",
+        "when": "editorLangId = qmd && editorTextFocus",
+        "args": {"text": " <- "}
+    },
+    {
+        "key": "ctrl+-",
+        "command": "type",
+        "when": "editorLangId = qmd && editorTextFocus",
+        "args": {"text": " <- "}
+    },
+    {
         "key": "cmd+shift+m",
         "command": "type",
-        "when": "editorTextFocus && editorLangId == 'markdown'",
-        "args": {
-        "text": "%>%"
-        }
+        "when": "editorLangId = qmd && editorTextFocus",
+        "args": {"text": " %>%\n"}
     },
     {
-    // Keybinding for running the selected code and retaining the cursor position with R
-         
-        "key": "ctrl+enter",
-        "command": "r.runSelectionRetainCursor"
+        "key": "ctrl+shift+m",
+        "command": "type",
+        "when": "editorLangId = qmd && editorTextFocus",
+        "args": {"text": " %>%\n"}
     },
+
+
+
+/* 
+Closing bracket
+*/
 ]
