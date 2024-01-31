@@ -11,7 +11,5 @@
     "[r]": {
         "editor.defaultFormatter": "REditorSupport.r"
     },
-    "files.associations": {
-        "*.qmd": "markdown" // Need to do this for quarto files to recognize markdown shortcuts in keybindings.json
-      }
+
 }
