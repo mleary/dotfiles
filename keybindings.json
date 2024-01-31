@@ -1,0 +1,36 @@
+/* Use this with VS Code to set default keyboard short cuts
+/  Place your key bindings in this file to override the defaultsauto[]
+*/
+[
+    { 
+    // Executes the selected Python code in the terminal when the key combination "cmd+enter" is pressed.
+            "key": "cmd+enter",
+            "command": "python.execSelectionInTerminal",
+            "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+    // Keybinding configuration for inserting a magrittr pipe in the editor with R
+        "key": "cmd+shift+m",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "langId": "r",
+            "name": "Insert magrittr pipe"
+        }
+    },
+    {
+    // Keybinding configuration for inserting a magrittr pipe in the editor with markdown (for quarto files)
+        "key": "cmd+shift+m",
+        "command": "type",
+        "when": "editorTextFocus && editorLangId == 'markdown'",
+        "args": {
+        "text": "%>%"
+        }
+    },
+    {
+    // Keybinding for running the selected code and retaining the cursor position with R
+         
+        "key": "ctrl+enter",
+        "command": "r.runSelectionRetainCursor"
+    },
+]
