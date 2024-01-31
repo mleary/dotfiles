@@ -1,5 +1,22 @@
 /* Use this with VS Code to set default keyboard short cuts
 /  Place your key bindings in this file to override the defaultsauto[]
+/  These are my default settings - Updated Jan 30, 2024
+*/
+
+{
+    "workbench.colorTheme": "Monokai",
+    "files.autoSave": "afterDelay",
+    "window.zoomLevel": 1,
+    "r.rmarkdown.enableCodeLens": false,
+    "r.plot.useHttpgd": true,
+    "[r]": {
+        "editor.defaultFormatter": "REditorSupport.r"
+    },
+    "files.associations": {
+        "*.qmd": "markdown" // Need to do this for quarto files to recognize markdown shortcuts in keybindings.json
+      }
+}
+
 */
 [
     { 
