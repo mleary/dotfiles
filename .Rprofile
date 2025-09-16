@@ -57,7 +57,7 @@ if (interactive()) {
 
     } else {
       message("\nHi Matt! You should install the {prompt} package.")
-      message("    devtools::install_github('gaborcsardi/prompt')")
+      message("    install.packages("prompt")")
     }
     ###### Closing message sign off
     message("
@@ -70,4 +70,5 @@ if (interactive()) {
     rm(load_pkg, prompt_git)
   
 }
+
 
