@@ -25,7 +25,9 @@ if (interactive()) {
           * Digits = 2
 
     Current Working Directory is:
-        -", getwd()," \n"
+        -", getwd()," \n",
+      "Cheers!
+***********************************************************\n"
     )                     
 
 
@@ -43,18 +45,13 @@ if (interactive()) {
       } else {
         prompt::set_prompt(prompt_git()) 
       }
-      # prompt::set_prompt(prompt::prompt_fancy)
+
     } else {
-      message("\nHi Matt! You should install the {prompt} package.")
+      message("\nHi! You should install the {prompt} package.")
     }
 
-    ###### Closing message sign off
-    message("
-    Cheers!
-***********************************************************\n")
-
     ############################################
-    #     remove load package function         #
+    #     remove prompt from session           #
     ############################################
     rm(prompt_git)
   
