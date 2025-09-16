@@ -1,34 +1,23 @@
 #author: Matt Leary
 #date: 08/13/2020
-#intent: basic customization for my RStudio sessions
+#updated: 09/15/2025
+#intent: basic customization for my R sessions 
 
 if (interactive()) {
     ############################################
     #            Set session options           #
     ############################################
     options(scipen=99)		# disable scientific notation
-    options(digits = 4)		# limit digits as much as possible
+    options(digits = 2)		# limit digits as much as possible
 
-
-    ############################################
-    #          load package function           #
-    ############################################
-
-    load_pkg <- function(pkg) {
-      if(!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
-        message(paste0("You should install the `", pkg, "` package"))
-      } else {
-        message(paste0("The`", pkg, "` package has been loaded"))
-      }  
-    }
-
-
+  
     ############################################
     #  Print Message that .Rprofile is loaded  #
     #       and add message about changes      #
     ############################################
-
-    message(
+    
+  # print changes & working directory
+    message( 
 "***********************************************************
     Loading Matt's .Rprofile
         Custom Settings:
@@ -37,7 +26,7 @@ if (interactive()) {
 
     Current Working Directory is:
         -", getwd()," \n"
-    )                     # print changes & working directory
+    )                     
 
 
     ###### Console prompt chnages
@@ -52,13 +41,13 @@ if (interactive()) {
       if(prompt::prompt_git() == "> "){
         prompt::set_prompt("[no git] >")
       } else {
-        prompt::set_prompt(prompt_git) 
+        prompt::set_prompt(prompt_git()) 
       }
-
+      # prompt::set_prompt(prompt::prompt_fancy)
     } else {
       message("\nHi Matt! You should install the {prompt} package.")
-      message("    install.packages("prompt")")
     }
+
     ###### Closing message sign off
     message("
     Cheers!
@@ -67,8 +56,7 @@ if (interactive()) {
     ############################################
     #     remove load package function         #
     ############################################
-    rm(load_pkg, prompt_git)
+    rm(prompt_git)
   
 }
-
 
