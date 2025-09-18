@@ -10,28 +10,9 @@ if (interactive()) {
     options(scipen=99)		# disable scientific notation
     options(digits = 2)		# limit digits as much as possible
 
-  
     ############################################
-    #  Print Message that .Rprofile is loaded  #
-    #       and add message about changes      #
+    #            Set console prompt            #
     ############################################
-    
-  # print changes & working directory
-    message( 
-"***********************************************************
-    Loading Matt's .Rprofile
-        Custom Settings:
-          * Scientific Notation display is disabled 
-          * Digits = 2
-
-    Current Working Directory is:
-        -", getwd()," \n",
-      "Cheers!
-***********************************************************\n"
-    )                     
-
-
-    ###### Console prompt chnages
     if(requireNamespace("prompt", quietly = TRUE)) {
       prompt_git <- function(...){
         paste0(
@@ -39,21 +20,45 @@ if (interactive()) {
           " > "
         )
       }
-
+      
       if(prompt::prompt_git() == "> "){
         prompt::set_prompt("[no git] >")
       } else {
         prompt::set_prompt(prompt_git()) 
       }
-
+      
     } else {
       message("\nHi! You should install the {prompt} package.")
     }
+    
+
+    ############################################
+    #  Print Message that .Rprofile is loaded  #
+    #       and add message about changes      #
+    ############################################
+  # print changes & working directory
+    message( 
+"***********************************************************
+Loading Matt's .Rprofile
+    Custom Settings:
+        * Scientific Notation display is disabled 
+        * Digits = 2
+    Current Working Directory is:
+        * ", getwd()," \n ",
+"   Current Working Directory is:
+        * ",
+    if(prompt::prompt_git() == "> "){
+      "[no git]"
+    } else {
+      prompt_git()
+    }," \n",
+      "Cheers!
+***********************************************************\n"
+    )                     
 
     ############################################
     #     remove prompt from session           #
     ############################################
     rm(prompt_git)
-  
-}
 
+}
