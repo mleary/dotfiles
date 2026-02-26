@@ -10,5 +10,5 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats '%F{magenta}🌿 %b%f'
 
 # Prompt: cyan user | green dir | (branch only in git repos)
-PROMPT='%F{cyan}%n%f | 📁 %F{green}%1~%f ${vcs_info_msg_0_}
+PROMPT='%F{cyan}%n%f | 📁 %F{green}%1~%f ${vcs_info_msg_0_}z
 $ '
